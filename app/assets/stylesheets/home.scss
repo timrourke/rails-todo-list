@@ -214,20 +214,22 @@ nav ul {
 
 @-webkit-keyframes fade-out {
   0% { opacity: 1;}
-  50% {opacity: 1;}
+  50% {opacity: 0.25;}
   100% {opacity:0; height:0; padding:0 1em; margin:0;}
 }
 @keyframes fade-out {
   0% { opacity: 1;}
-  50% {opacity: 1;}
+  50% {opacity: 0.25;}
   100% {opacity: 0; height:0; padding:0 1em; margin:0;}
 }
 
 .alert {
-		-webkit-animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 1.0);
-						animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 1.0);
-    -webkit-animation: fade-out 1s;
-            animation: fade-out 1s;
+		-webkit-animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 0.1, 0.1, 1.0);
+						animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 0.1, 0.1, 1.0);
+    -webkit-animation: fade-out 2s;
+            animation: fade-out 2s;
+    -webkit-animation-delay: 1s;
+						animation-delay: 1s;
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
     opacity: 1;

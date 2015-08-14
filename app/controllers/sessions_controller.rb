@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
   		flash.notice = "#{@user.email} successfully logged in."
 
-  		redirect_to '/users/login'
+  		redirect_to '/'
   	else
   		flash.alert = "Username or password is incorrect."
 

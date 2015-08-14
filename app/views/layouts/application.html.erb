@@ -18,7 +18,13 @@
 			<nav>
 				<ul>
 					<li><a href="/">Home</a></li>
+					<% if !session[:user_id] %>
 					<li><a href="/users/signup">Sign Up</a></li>
+					<li><a href="/users/login">Log In</a></li>
+					<% end %>
+					<% if session[:user_id] %>
+					<li><a href="/users/logout">Log Out</a></li>
+					<% end %>
 				</ul>
 			</nav>
 		</div>

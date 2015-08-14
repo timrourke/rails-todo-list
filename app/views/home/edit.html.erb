@@ -1,0 +1,21 @@
+<h1>Edit</h1>
+<p>Edit <%= @product.name %></p>
+
+<%= form_for @product, url: {action: 'update'} do |f| %>
+
+	<label>
+		Name
+		<%= f.text_field(:name) %>
+	</label>
+	
+	<label>
+		Quantity
+		<%= f.number_field(:quantity) %>	
+	</label>
+	
+	<%= f.hidden_field(:id) %>
+	<%= f.submit 'Edit' %>
+
+<% end %>
+
+<a href="/">Back to list</a>

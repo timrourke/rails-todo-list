@@ -1,0 +1,43 @@
+<% if flash[:notice] %>
+  <div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-warning"><%= flash[:alert] %></div>
+<% end %>
+
+<p>Another todo list in Rails.</p>
+
+<a href="/new"><button type="button">Add new item</button></a>
+
+<table>
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Created</th>
+			<th>Updated</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= product.quantity %></td>
+			<td><%= Time.parse( product.created_at.to_s ).strftime("%-m/%-d/%Y") %></td>
+			<td><%= Time.parse( product.updated_at.to_s ).strftime("%-m/%-d/%Y") %></td>
+			<td><a href="/edit/<%= product.id %>"><button type="button">Edit</button></a></td>
+			<td>
+				<%= form_for product, url: {action: 'delete'} do |f| %>
+					<%= f.hidden_field(:id) %>
+					<div class="button">
+						<%= f.submit 'Delete' %>	
+					</div>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

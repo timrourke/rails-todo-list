@@ -1,0 +1,250 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+*, *::before, *::after {
+	box-sizing:border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color:#9B4164;
+}
+
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+body {
+	height:100%;
+	color:#444;
+	font-weight: 300;
+	font-family:'Source Sans Pro', sans-serif;
+}
+
+.outer-wrapper {
+	background:linear-gradient(to bottom, #E1D8DB, #E1BDC5);
+	background-repeat:no-repeat;
+	background-size:cover;
+	width: 100%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0px 0px -4em 0px;
+}
+
+.wrapper {
+	margin:0 auto;
+	width:100%;
+	padding:1em;
+	max-width:50em;
+	padding-bottom:4em;
+}
+
+form {
+	padding:2em 2em 1.2em 2em;
+	background:linear-gradient(to bottom, rgba(255,255,255,0.125), rgba(255,255,255,0.25));
+	box-shadow:0 0 3px rgba(0,0,0,0.125);
+	margin-bottom:1em;
+	table & {
+		margin:0;
+		padding:0;
+		margin-bottom:0;
+		box-shadow: none;
+		background:none;
+	}
+}
+
+table {
+	width:100%;
+	padding:2em;
+	background:linear-gradient(to bottom, rgba(255,255,255,0.125), rgba(255,255,255,0.25));
+	border-collapse: separate;
+	border-spacing:0;
+}
+
+form, table {
+	border-radius:0.25em;
+}
+
+tbody,
+theader,
+tfooter {
+	width:100%;
+	padding:1em;
+}
+
+tr:nth-child(2n+2) {
+	background-color:rgba(255,255,255,0.25);
+}
+
+th {
+	text-align:left;
+}
+
+th, td {
+	padding:0.5em;
+	border:0;
+}
+
+label {
+	width:100%;
+	display:block;
+	margin-bottom:1.5em;
+	font-size:0.8em;
+	text-transform: uppercase;
+	color:#667;
+}
+
+input {
+	width:100%;
+	display:block;
+	height:3em;
+	padding:0.5em;
+	margin-top:0.25em;
+	outline:none;
+	border:1px solid white;
+	background-color:#eeeeff;
+	transition:all 0.3s ease-out;
+	&:focus {
+		background-color:white;
+	}
+}
+
+button, input[type="submit"] {
+	position:relative;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	outline:none;
+	border:0.075em solid rgba(255,255,255,0.5);
+	border-radius:0.25em;
+	background:linear-gradient(to bottom, #78a, #468);
+	color:white;
+	text-transform: uppercase;
+	font-weight: 300;
+	height:3em;
+	padding:0.5em 1em;
+	margin-bottom:1em;
+	margin-top:0;
+	display:inline-block;
+	width:inherit;
+	vertical-align: bottom;
+	overflow:hidden;
+	td & {
+		margin-bottom:0;
+	}
+	&::before {
+		position:absolute;
+		content:'';
+		display:block;
+		top:0;
+		left:-30%;
+		width:20%;
+		height:100%;
+		background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5), transparent);
+		transform:translateX(0) skewX(25deg);
+		transition:all 0 ease-out;
+	}
+	&:hover {
+		cursor:pointer;
+	}
+	&:hover::before {
+		transition:all 0.3s ease-out;
+		transform:translateX(700%) skewX(25deg);
+		opacity:0;
+	}
+}
+
+.site-header {
+	@extend .clearfix;
+	padding:1em;
+	margin-bottom:2em;
+}
+
+.site-branding {
+	float:left;
+	a {
+		text-decoration:none;
+	}
+}
+
+.site-navigation {
+	margin-top:2em;
+	float:right;
+}
+
+nav ul {
+	@extend .clearfix;
+	padding:0;
+	margin:0;
+	list-style-type: none;
+	li {
+		float:left;
+		display:block;
+		margin-left:1em;
+	}
+}
+
+.site-footer {
+	padding:1em;
+	height:4em;
+}
+
+.copyright {
+	margin:0;
+}
+
+@-webkit-keyframes fade-out {
+  0% { opacity: 1;}
+  50% {opacity: 1;}
+  100% {opacity:0; height:0; padding:0 1em; margin:0;}
+}
+@keyframes fade-out {
+  0% { opacity: 1;}
+  50% {opacity: 1;}
+  100% {opacity: 0; height:0; padding:0 1em; margin:0;}
+}
+
+.alert {
+		-webkit-animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 1.0);
+						animation-timing-function: cubic-bezier(0.1, 0.1, 0.1, 1.0);
+    -webkit-animation: fade-out 1s;
+            animation: fade-out 1s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    opacity: 1;
+    margin-top:1em;
+    margin-bottom:1em;
+    border-radius:0.25em;
+    padding:1em;
+    overflow:hidden;
+    height:3em;
+}
+
+.alert-info {
+	background-color:#abe;
+	border:1px solid #457;
+}
+
+.alert-warning {
+	background-color:#ecb;
+	border:1px solid #c89;
+}

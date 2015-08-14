@@ -1,0 +1,27 @@
+<h1>Log in</h1>
+
+<p>tessdsdfhsdfhsdfhsdfhsdfhsdhdsft</p>
+
+<% if flash[:notice] %>
+  <div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-warning"><%= flash[:alert] %></div>
+<% end %>
+
+<%= form_for @user, url: {action: 'authenticate'} do |f| %>
+	
+	<label>
+		Email
+		<%= f.email_field :email %>
+	</label><br>
+	
+	<label>
+		Password
+		<%= f.password_field :password %>
+	</label><br>
+	
+	<%= f.submit 'Log in' %>
+
+<% end %>
